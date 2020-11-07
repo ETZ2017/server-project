@@ -1,0 +1,32 @@
+<h3>{{viewTitle}}</h3>
+
+<form autocomplete="off" action="/artist" method="post">
+    <input type="hidden" name="_id" value="{{artist._id}}"/>
+    <div class="form-group">
+        <label>Name: </label><input class="form-control" type="text" value="{{artist.name}}" placeholder="Full Name" name="name"/><br/>
+        <div class="text-danger">
+            {{artist.nameError}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email: </label><input class="form-control" type="text" value="{{artist.email}}" placeholder="Email" name="email"/><br/>
+        <div class="text-danger">
+            {{artist.emailError}}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Type: </label><input class="form-control" type="text" value="{{artist.type}}" placeholder="Type" name="type"/><br/>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Phone: </label><input class="form-control" type="text" value="{{artist.phone}}" placeholder="Phone" name="phone"/><br/>
+        </div>  
+    </div>
+    <div class="form-group">
+        <label>Description: </label><input class="form-control" type="text" value="{{artist.description}}" placeholder="Description" name="description"/><br/>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/artist/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>

@@ -1,0 +1,17 @@
+[
+  {"id": "1",
+   "name": "Andrew",
+    "type": "Player",
+    "description": "good"
+  },
+  {"id": "2",
+    "name": "Vasya",
+    "type": "Player",
+    "description": "good"
+  },
+  {"id": "3",
+    "name": "Andrew",
+    "type": "Player",
+    "description": "good"
+  }
+]

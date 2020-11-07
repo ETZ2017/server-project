@@ -1,0 +1,31 @@
+<h3><a class="btn btn-secondary" href="/artist"><i class="fa fa-plus"></i> Create New</a> Artists</h3>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each list}}
+    <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.type}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.description}}</td>
+        <td>
+            <a href="/artist/{{this._id}}"><i class="fa fa-pencil fa-lg"></i></a>
+        </td>
+        <td>
+            <a href="/artist/delete/{{this._id}}" onclick="confirm('Do you really want to delete this record?')"><i class="fa fa-trash fa-lg"></i></a>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>

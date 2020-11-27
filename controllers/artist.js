@@ -1,4 +1,3 @@
-
 import express from 'express';
 import mongoose from 'mongoose';
 
@@ -61,13 +60,27 @@ function updateRecord(req, res){
 }
 
 router.get('/list', (req, res) => {
-    ArtistModel.find((err, docs)=>{
-        if(!err){
-            res.render("list", {list: docs})
-        } else {
-            res.send("Error")
-        }
-    });
+    if(req.query.search){
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        ArtistModel.find({"name": regex}, (err, docs)=>{
+            if(!err){
+                if(docs.length < 1) {
+                    var noMatch = "There is no artist that matches this request."
+                }
+                res.render("list", {list: docs})
+            } else {
+                res.send("Error")
+            }
+        });
+    } else {
+        ArtistModel.find((err, docs)=>{
+            if(!err){
+                res.render("list", {list: docs})
+            } else {
+                res.send("Error")
+            }
+        });
+    }
 });
 
 router.get("/:id", (req, res) => {
@@ -105,5 +118,9 @@ function handleValidationError(err, body){
         }
     }
 }
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

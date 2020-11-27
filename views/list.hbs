@@ -1,4 +1,13 @@
-<h3><a class="btn btn-secondary" href="/artist"><i class="fa fa-plus"></i> Create New</a> Artists</h3>
+<div>
+    <h3 style="display: inline-block;"><a class="btn btn-secondary" href="/artist"><i class="fa fa-plus"></i>  Create New</a> Artists</h3>
+    <form action="/artist/list" style="display: inline-block; float: right;" method="GET" class="">
+        <div class="form-group">
+            <input type="text" name="search" placeholder="Search for the artist..." class=""/>
+            <input type="submit" value="Search" class="btn btn-secondary"/>
+        </div>
+    </form>
+</div>
+
 <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -12,6 +21,11 @@
     </tr>
     </thead>
     <tbody>
+
+    {{!-- {{#if list}}
+        <h3>No match</h3>
+    {{/if}} --}}
+
     {{#each list}}
     <tr>
         <td>{{this.name}}</td>

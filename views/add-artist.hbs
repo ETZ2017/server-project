@@ -1,9 +1,16 @@
+<style>
+  .required:after {
+    content:" *";
+    color: red;
+  }
+</style>
+
 <h3>{{viewTitle}}</h3>
 
 <form autocomplete="off" action="/artist" method="post">
     <input type="hidden" name="_id" value="{{artist._id}}"/>
     <div class="form-group">
-        <label>Name: </label><input class="form-control" type="text" value="{{artist.name}}" placeholder="Full Name" name="name"/><br/>
+        <label class="required">Name: </label><input class="form-control" type="text" value="{{artist.name}}" placeholder="Full Name" name="name"/><br/>
         <div class="text-danger">
             {{artist.nameError}}
         </div>

@@ -6,6 +6,7 @@ import path from 'path';
 const __dirname = path.resolve();
 
 const ArtistController = require("./controllers/artist")
+const MainController = require("./controllers/main")
 
 const PORT = 3001;
 const application = express();
@@ -36,6 +37,7 @@ application.set('view engine', 'hbs')
 //     res.render("index", {})
 // });
 
+application.use("/", MainController)
 application.use("/artist", ArtistController);
 
 application.listen(PORT, () => {

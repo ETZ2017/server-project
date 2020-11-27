@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 var ArtistSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: "This field is required."
+        required: "This field is required!"
     },
     email: {
         type: String
